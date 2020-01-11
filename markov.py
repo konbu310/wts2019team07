@@ -46,7 +46,7 @@ def generate():
 
 
 # カッコの中にmecabしたファイルのパスを入れる
-create_dataset("ashitaka.txt.mecab")
+create_dataset("musuka.txt.mecab")
 
 # 10個生成してみる
 for i in range(0, 11):
