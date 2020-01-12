@@ -48,5 +48,5 @@ def generate():
 # カッコの中にmecabしたファイルのパスを入れる
 create_dataset("musuka.txt.mecab")
 
-# 10個生成してみる
+# 生成する
 print(generate())
