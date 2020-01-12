@@ -49,5 +49,4 @@ def generate():
 create_dataset("musuka.txt.mecab")
 
 # 10個生成してみる
-for i in range(0, 11):
-    print(generate())
+print(generate())

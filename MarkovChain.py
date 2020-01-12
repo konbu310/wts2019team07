@@ -31,7 +31,7 @@ class MarkovChain:
                     prev = words[i-1]
                 self.__dict[prev].append(now)
 
-    def __sample(self, word):
+    def sample(self, word):
         words = self.__dict[word]
         if words == None:
             words = []
@@ -39,8 +39,16 @@ class MarkovChain:
 
     def generate(self):
         sentence = []
-        word = self.__sample(None)
+        word = self.sample(None)
         while word:
             sentence.append(word)
-            word = self.__sample(word)
+            word = self.sample(word)
         return "".join(sentence)
+
+    def generateFrom(self, start):
+        sentence = []
+        word = self.sample(start)
+        while word:
+            sentence.append(word)
+            word = self.sample(word)
+        return start.join(sentence)
