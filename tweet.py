@@ -1,6 +1,20 @@
 import math
 import random
 from collections import defaultdict
+import tweepy
+
+consumer_key = 'yffvpQmXpj13sittanWNKTulm'
+consumer_secret = 'VCQyGpFLx7YmFUZkXo8k91Cqstoo4SmRpE8ZxzobMTbPOqEF2H'
+access_token = '1214403479503900673'
+access_token_secret = 'VVccckXRBODCspZRU4Gbjg1nmToosMEWiXz69giTICT1p'
+
+# Twitter OAuth
+auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+auth.secure = True
+auth.set_access_token(access_token, access_token_secret)
+
+# Twitter API
+api = tweepy.API(auth)
 
 dict = defaultdict(list)
 
@@ -48,9 +62,12 @@ def generate():
     return "".join(sentence)
 
 
-# カッコの中にmecabしたファイルのパスを入れる
 create_dataset("musuka.txt.mecab")
 
-# 生成する
-for i in range(0, 11):
-    print(generate())
+text = generate()
+
+# ツイートを送信
+try:
+    api.update_status(status=text)
+except tweepy.TweepError as e:
+    print(e)
