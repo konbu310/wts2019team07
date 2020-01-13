@@ -27,13 +27,16 @@ def create_dataset(path):
             if i != 0:
                 prev = words[i-1]
             dict[prev].append(now)
+    for index, key in enumerate(dict):
+        dict[key] = list(set(dict[key]))
 
 
 def sample(word):
     words = dict[word]
     if words == None:
-        words = []
-    return words[math.floor(random() * len(words))]
+        return None
+    else:
+        return words[math.floor(random() * len(words))]
 
 
 def generate():
@@ -49,4 +52,5 @@ def generate():
 create_dataset("musuka.txt.mecab")
 
 # 生成する
-print(generate())
+for i in range(0, 11):
+    print(generate())
