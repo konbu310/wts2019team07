@@ -3,10 +3,10 @@ import random
 from collections import defaultdict
 import tweepy
 
-consumer_key = 'yffvpQmXpj13sittanWNKTulm'
-consumer_secret = 'VCQyGpFLx7YmFUZkXo8k91Cqstoo4SmRpE8ZxzobMTbPOqEF2H'
-access_token = '1214403479503900673'
-access_token_secret = 'VVccckXRBODCspZRU4Gbjg1nmToosMEWiXz69giTICT1p'
+consumer_key = ""
+consumer_secret = ""
+access_token = ""
+access_token_secret = ""
 
 # Twitter OAuth
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
